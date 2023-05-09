@@ -1,0 +1,110 @@
+how to check git version: 
+Command: git --version
+how to commint:
+command: git commit -m "text what u want to write"
+how to check logs:
+command: git log (it will show the details for the commit and uid)
+how to switch in previos commit:
+command: git checkout "uid for the commit where we want to check out"
+how to switch to master commit:
+command: git checkout master 
+
+
+GIT BASIC commands:
+
+how to create branch:
+command: git branch "name"
+
+In git latest version we can use new command like:
+to switch on branches we can use: git switch "branch name";
+to create new branch:
+command: git switch -c "new branch name";
+how to show files in branch?
+command: git ls-files;
+how to remove files from git:
+command: git rm "filename.txt"
+how to resoter a file from git:
+command: git resoter "filename.txt"
+how to go to pervios data or remove the previos modification:
+git checkout --"is for branch name or if not will use -- for current branch" "filename";
+git checkout . "means it is used for branch files anything changed it will be revort";
+
+**Checkout is the treditional way to revort unsage changes in files and branches;
+
+
+git restore will also work same to revort unstage changes  in data, 
+
+if we need to deleted any untracked file form git:
+git clean -dn "n means it will show the file what git is going to delted"
+git clean -df "f means force fully git won't ask any question further it will delete the file."	
+
+
+if we add the laster modification in files, but we don't we need to delete the changes than we need to use git reset first before running git check .
+git reset will unsave the lastest change in files that we did, also we can use git restort in the place of reset. 
+
+how to delete last commit in git:
+git reset --soft HEAD~1 "~ after tild sign we need to infrom to git how many commit we need to deleted like 1,2,3 so on."
+defaust git reset:
+command: git reset HEAD~1 "this will delete the file also."
+
+had rest: git reset --hard  HEAD~1 "this will clear all the data for that specfic commit and file"
+
+how to delete branch
+command: git branch -D "branch name & more we can delete on same time";
+
+
+*.log "here it will ignore all file .log"
+!test.log "means this file not need to ignore"
+
+git 2.23+ version we can use git switch and latest commands
+
+
+************************************************************************************************************************************************************************************
+
+Useful Resources & Links
+Official Git website => https://git-scm.com/
+
+Git MacOS installation => https://github.com/git-guides/install-git
+
+Git commands reference => https://git-scm.com/docs
+
+
+************************************************************************************************************************************************************************************
+
+GIT More Dipper commands:
+
+how to check undo the latest change in file without reset and restore, 
+command: git stash, git stash apply "will help to restor the data again" git list "will help to show the stash" git stach apply"number what u wnt to execute 1,2, 3 so no" git stash drop"number what u want to delete"
+
+command: git reflog "we can see all overview of all the logs and changed in branch for last 30 days" 
+
+git merge concept:
+
+there are 4 types for git merge, 
+1, fastforward: it will commit another branch into master branch (like it will move forward the pinter from head to master/"merge branch")
+2,git merge --squash "branch name" "in this command in won't move the pointer from head to master"
+3,Non fastforward merge:
+command: git merge --no-ff "branchname" it will show the merge branch name also it won't pint the head to another branch"the head will still on master branch"
+
+Cherrypick is used to add sepcific commits that we need to add, also it will create a new uid when it will change the location,
+command: git cherry-pick "uid"
+
+we can use git tag for version,
+command: git tag 1.0 "udi" for delete git tag -d 1.0
+
+
+*********
+note:
+git stash : temporary storage for unstage and uncommited changes
+git reflog: a log of all project changes made includeing delted commits,
+git merge: combining commits from diffrent branches by creating a new merge commit (recursive) or by moving the HEAD (fastforward)
+git rebase: change the base (i.e the parent commit) of commits in another branch
+git cherry-pick: copy commit includeing the changes made only in this commit as HEAD  to other branch. 
+****************************
+
+Useful Resources & Links
+More on merge conflicts => https://git-scm.com/book/en/v2/Git-Tools-Advanced-Merging#_advanced_merging
+
+Additional merge strategies => https://git-scm.com/docs/merge-strategies
+
+*******************************************************************************************************************************

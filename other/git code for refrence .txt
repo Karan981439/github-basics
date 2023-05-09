@@ -1,0 +1,271 @@
+PS C:\Users\karan\study> git branch
+fatal: not a git repository (or any of the parent directories): .git
+PS C:\Users\karan\study> cd git
+PS C:\Users\karan\study\git> git branch
+* master
+  new-branch
+  testing-branch
+PS C:\Users\karan\study\git> log 
+log : The term 'log' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, 
+verify that the path is correct and try again.
+At line:1 char:1
++ log
++ ~~~
+    + CategoryInfo          : ObjectNotFound: (log:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\karan\study\git> git log
+commit 27786eaba569b89ee90d34280fd742a8bbdffb26 (HEAD -> master, new-branch)
+Author: Karan <karanjeet2341@gmail.com>
+Date:   Fri May 5 20:01:52 2023 +0530
+
+    testing branch added
+
+commit 70cd834f5c7c78dfbef1d9b1235a5f935650b63c (testing-branch)
+Author: Karan <karanjeet2341@gmail.com>
+Date:   Fri May 5 19:26:49 2023 +0530
+
+    added second .txt file
+
+PS C:\Users\karan\study\git> checkout new-branch 
+checkout : The term 'checkout' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was 
+included, verify that the path is correct and try again.
+At line:1 char:1
++ checkout new-branch
++ ~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (checkout:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\karan\study\git> git checkout new-branch
+Switched to branch 'new-branch'
+PS C:\Users\karan\study\git> git log
+commit 27786eaba569b89ee90d34280fd742a8bbdffb26 (HEAD -> new-branch, master)
+Author: Karan <karanjeet2341@gmail.com>
+Date:   Fri May 5 20:01:52 2023 +0530
+
+    testing branch added
+
+commit 70cd834f5c7c78dfbef1d9b1235a5f935650b63c (testing-branch)
+Author: Karan <karanjeet2341@gmail.com>
+Date:   Fri May 5 19:26:49 2023 +0530
+
+    added second .txt file
+
+PS C:\Users\karan\study\git> git checkout 27786eaba569b89ee90d34280fd742a8bbdffb26
+Note: switching to '27786eaba569b89ee90d34280fd742a8bbdffb26'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 27786ea testing branch added
+PS C:\Users\karan\study\git> git branch
+* (HEAD detached at 27786ea)
+  master
+  new-branch
+  testing-branch
+PS C:\Users\karan\study\git> git chekout master
+git: 'chekout' is not a git command. See 'git --help'.
+
+The most similar command is
+        checkout
+PS C:\Users\karan\study\git> git checkout
+PS C:\Users\karan\study\git> git branch
+* (HEAD detached at 27786ea)
+  master
+  new-branch
+  testing-branch
+PS C:\Users\karan\study\git> git checkout master
+Switched to branch 'master'
+PS C:\Users\karan\study\git> git branch
+* master
+  new-branch
+  testing-branch
+PS C:\Users\karan\study\git> git --version
+git version 2.40.1.windows.1
+PS C:\Users\karan\study\git> git switch new-branch
+Switched to branch 'new-branch'
+PS C:\Users\karan\study\git> git branch
+  master
+* new-branch
+  testing-branch
+PS C:\Users\karan\study\git> git switch -c thrd-branch
+Switched to a new branch 'thrd-branch'
+PS C:\Users\karan\study\git> git branch
+  master
+  new-branch
+  testing-branch
+* thrd-branch
+PS C:\Users\karan\study\git> git stauts
+git: 'stauts' is not a git command. See 'git --help'.
+
+The most similar command is
+        status
+PS C:\Users\karan\study\git> git master
+git: 'master' is not a git command. See 'git --help'.
+
+The most similar command is
+        restore
+PS C:\Users\karan\study\git> git checkout master
+Switched to branch 'master'
+PS C:\Users\karan\study\git> git stauts
+git: 'stauts' is not a git command. See 'git --help'.
+
+The most similar command is
+        status
+PS C:\Users\karan\study\git> git ls-files
+initial-commit.txt
+second-commit.txt
+testing-branch
+PS C:\Users\karan\study\git> git status
+On branch master
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        deleted:    testing-branch
+
+no changes added to commit (use "git add" and/or "git commit -a")
+PS C:\Users\karan\study\git> git rm testing-branch.txt
+fatal: pathspec 'testing-branch.txt' did not match any files
+PS C:\Users\karan\study\git> git rm testing-branch.txt
+fatal: pathspec 'testing-branch.txt' did not match any files
+PS C:\Users\karan\study\git> git ls-files
+initial-commit.txt
+second-commit.txt
+testing-branch
+PS C:\Users\karan\study\git> git rm testing-branch
+rm 'testing-branch'
+PS C:\Users\karan\study\git> git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        deleted:    testing-branch
+
+PS C:\Users\karan\study\git> git commit -m "branch sucessfuly delted"
+[master 99e9e51] branch sucessfuly delted
+ 1 file changed, 1 deletion(-)
+ delete mode 100644 testing-branch
+PS C:\Users\karan\study\git> git ls-files
+initial-commit.txt
+second-commit.txt
+PS C:\Users\karan\study\git> git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   initial-commit.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+PS C:\Users\karan\study\git> git checkout -- initial-commit.txt
+PS C:\Users\karan\study\git> git checkout . 
+Updated 2 paths from the index
+PS C:\Users\karan\study\git> git status
+On branch master
+nothing to commit, working tree clean
+PS C:\Users\karan\study\git> git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        new.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+PS C:\Users\karan\study\git> git clean -dn
+Would remove new.txt
+PS C:\Users\karan\study\git> git clean -df
+Removing new.txt
+PS C:\Users\karan\study\git> git add unrequired.txt
+fatal: pathspec 'unrequired.txt' did not match any files
+PS C:\Users\karan\study\git> git add unrequired.txt
+PS C:\Users\karan\study\git> git commit -m "unrequired txt added"
+[master 15ad67a] unrequired txt added
+ 1 file changed, 1 insertion(+)
+ create mode 100644 unrequired.txt
+PS C:\Users\karan\study\git> git log
+commit 15ad67a1181795023741a317e41590d9ed4e9edb (HEAD -> master)
+Author: Karan <karanjeet2341@gmail.com>
+Date:   Sun May 7 17:24:46 2023 +0530
+
+    unrequired txt added
+
+commit 99e9e5153a977d54587ba8f7c5cfc618f2ad2384
+Author: Karan <karanjeet2341@gmail.com>
+Date:   Sun May 7 16:55:55 2023 +0530
+
+    branch sucessfuly delted
+
+PS C:\Users\karan\study\git> git reset --soft HEAD~1
+PS C:\Users\karan\study\git> git log 
+commit 99e9e5153a977d54587ba8f7c5cfc618f2ad2384 (HEAD -> master)
+Author: Karan <karanjeet2341@gmail.com>
+Date:   Sun May 7 16:55:55 2023 +0530
+
+    branch sucessfuly delted
+
+commit 27786eaba569b89ee90d34280fd742a8bbdffb26 (thrd-branch, new-branch)
+Author: Karan <karanjeet2341@gmail.com>
+Date:   Fri May 5 20:01:52 2023 +0530
+
+    testing branch added
+
+PS C:\Users\karan\study\git> git ls-files
+initial-commit.txt
+second-commit.txt
+unrequired.txt
+PS C:\Users\karan\study\git> git reset --hard HEAD~1
+HEAD is now at 27786ea testing branch added
+PS C:\Users\karan\study\git> git branch
+* master
+  new-branch
+  testing-branch
+  thrd-branch
+PS C:\Users\karan\study\git> git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .gitignore
+        test.log
+
+nothing added to commit but untracked files present (use "git add" to track)
+PS C:\Users\karan\study\git> git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .gitignore
+
+nothing added to commit but untracked files present (use "git add" to track)
+PS C:\Users\karan\study\git> git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .gitignore
+
+nothing added to commit but untracked files present (use "git add" to track)
+PS C:\Users\karan\study\git> git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .gitignore
+        test.log
+        test2.log
+
+nothing added to commit but untracked files present (use "git add" to track)
+PS C:\Users\karan\study\git> git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .gitignore
+        test.log
+
+nothing added to commit but untracked files present (use "git add" to track)
+PS C:\Users\karan\study\git>
